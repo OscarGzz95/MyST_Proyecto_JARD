@@ -58,3 +58,8 @@ Precios_Oanda <- HisPrices(AccountType = OA_At, Granularity = OA_Pr,
                            Instrument = OA_In, 
                            Start = "2016-11-06", End = "2018-11-06", Count = NULL)
 
+library(quantmod)
+
+Close <- xts(x = Precios_Oanda$Close, order.by = Precios_Oanda$TimeStamp)
+
+chartSeries(Close)
